@@ -1,9 +1,0 @@
-# Directories #
-######################
-venv/
-media/
-food/migrations/
-.idea/
-# Logs and databases #
-######################
-*.sqlite3
