@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "style.css" %}">
+
+    <title>Food Menu</title>
+</head>
+<body>
+
+    <nav class="pink">
+        <div class="nav-wrapper">
+            <div class="container">  
+                <a href="/" class="brand-logo">Food Menu</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url "food:add-product" %}">Add Item</a></li>
+                <li><a href="/">Log out</a></li>
+                {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

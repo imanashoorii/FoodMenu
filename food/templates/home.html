@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    {% for products in product_qs %}
+      <div class="col s12 m4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="{{ products.image.url }}">
+              <span class="card-title">{{ products.title }}</span>
+              {% if request.user.is_authenticated %}
+              <a href="{% url "food:update-product" products.id %}" class="btn-floating halfway-fab btn-large red pulse red"><i class="material-icons">edit</i></a>
+              {% endif %}
+            </div>
+            <div class="card-content">
+              <p>
+                {{ products.description }}
+              </p>
+              <p>
+                ${{ products.price }}
+              </p>
+            </div>
+            
+                {% if request.user.is_authenticated %}
+                <div class="card-action">
+                    <form action="delete_item/{{ products.id }}/" method="post">
+                        {% csrf_token %}
+                        <button class="btn-small waves-effect waves-light cyan" type="submit" name="action">Remove
+                            <i class="material-icons left">delete</i>
+                        </button>
+                    </form>
+                </div>
+                {% else %}
+                <div class="card-action">
+                    <a href="{% url "food:detail" products.id %}"><button class="btn-small waves-effect waves-light cyan ml-2" type="submit" name="action">Detail
+                        <i class="material-icons left">clear_all</i>
+                    </button></a>
+                </div>
+                {% endif %}
+          </div>
+        </div>
+
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
