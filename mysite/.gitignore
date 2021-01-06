@@ -1,9 +1,0 @@
-# Logs and databases #
-######################
-*.sqlite3
-
-# Directories #
-######################
-venv/
-media/
-.idea/
