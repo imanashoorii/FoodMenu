@@ -41,7 +41,7 @@ def add_product(request):
         form.save()
         return redirect("food:home")
 
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'add-edit-product.html', {'form': form})
 
 
 def update_product(request, product_id):
@@ -52,4 +52,4 @@ def update_product(request, product_id):
         form.save()
         return redirect('food:home')
 
-    return render(request, 'index.html', {'form': form, 'product': product})
+    return render(request, 'add-edit-product.html', {'form': form, 'product': product})
