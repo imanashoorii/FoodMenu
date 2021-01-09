@@ -31,6 +31,10 @@ def add_product(request):
     form = AddItemForm(request.POST or None, request.FILES)
 
     if form.is_valid():
+        # title = request.POST.get('title')
+        # description = request.POST.get('description')
+        # price = request.POST.get('price')
+        # image = request.POST.get('image')
         form.save()
         return redirect("food:home")
 
