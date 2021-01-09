@@ -52,4 +52,4 @@ def update_product(request, product_id):
         form.save()
         return redirect('food:home')
 
-    return render(request, 'add-item.html', {'form': form, 'product': product})
+    return render(request, 'index.html', {'form': form, 'product': product})
