@@ -34,7 +34,7 @@ def add_product(request):
         form.save()
         return redirect("food:home")
 
-    return render(request, 'add-item.html', {'form':form})
+    return render(request, 'index.html', {'form':form})
 
 def update_product(request, product_id):
     product = Product.objects.get(id=product_id)
