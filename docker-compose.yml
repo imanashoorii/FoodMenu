@@ -13,9 +13,9 @@ x-common-config:
 services:
 
   jobfinder:
-    image: python/jobfinder
-    hostname: finder
-    container_name: jobfinder
+    image: python/foodmenu
+    hostname: menu
+    container_name: foodmenu
     ports:
       - "8000:8000"
     << : *common-config
